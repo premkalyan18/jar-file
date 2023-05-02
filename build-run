@@ -1,0 +1,3 @@
+#!/bin/sh
+mvn clean package && docker build -t jarfile/premkalyan .
+docker rm -f premkalyan 2>/dev/null || true && docker run -it --name premkalyan -p 8080:8080 -p 4848:4848 -p 8181:8181 --name premkalyan jarfile/premkalyan
